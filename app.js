@@ -13,8 +13,16 @@ async function fetchImages(query = 'japan') {
     let response = await fetch(`https://api.unsplash.com/search/photos?page=1&query=${query}&client_id=OmG0FZqCP8A7GhQjYOIs8mqplMHO4OD0xWwoopV1CaA`)
     let data = await response.json();
     images = data.results
+    preloadImages()
     updateDisplayImage(images[currentImageIndex])
     createThumbnails()
+}
+
+function preloadImages() {
+    for (let image of images) {
+        const img = new Image();
+        img.src = image.urls.full; // Preload the full-size image
+    }
 }
 
 // form stuff
@@ -73,18 +81,26 @@ function updateScrollBar(currentImage) {
 
 
 function updateDisplayImage(image) {
-    let currentDisplayImage = displayElem.firstChild
+    let newDisplayImage = document.createElement('img');
+    newDisplayImage.setAttribute('src', image.urls.full);
+    newDisplayImage.setAttribute('alt', image.alt_description);
+    newDisplayImage.style.animation = 'slideIn 0.7s forwards';
+    newDisplayImage.style.position = 'absolute'
 
-    if (!currentDisplayImage) { 
-        currentDisplayImage = document.createElement('img')
-        displayElem.appendChild(currentDisplayImage)
+    let currentDisplayImage = displayElem.firstChild;
+    if (currentDisplayImage) {
+        currentDisplayImage.style.animation = 'slideOut 0.7s backwards';
+        newDisplayImage.addEventListener('animationend', function() {
+            if (currentDisplayImage && currentDisplayImage.parentNode === displayElem) {
+                displayElem.removeChild(currentDisplayImage);
+            }
+        });
     }
- 
-    currentDisplayImage.setAttribute('src', image.urls.full)
-    currentDisplayImage.setAttribute('alt', image.alt_description)
-    updateScrollBar(image)
-    document.getElementById('announcer').textContent = image.alt_description
+    displayElem.appendChild(newDisplayImage);
+    updateScrollBar(image);
+    document.getElementById('announcer').textContent = image.alt_description;
 }
+
 
 next.addEventListener('click', function() { selectNextImage(1) })
 prev.addEventListener('click', function() { selectNextImage(-1)})

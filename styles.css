@@ -98,6 +98,19 @@ button#prev{
     display: none;
 }
 
+.searchbar {
+    position: absolute;
+    top: 4vh; /* Adjust this value so it sits above the thumbnail container */
+    left: 50%; /* Center align */
+    transform: translateX(-50%); /* Adjust for center alignment */
+    z-index: 101; /* Higher than the thumbnail container */
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none; /* Removes default focus outline */
+}
+
 /* For desktop */
 @media (width >= 600px) {
     .description-container {
@@ -151,6 +164,11 @@ button#prev{
         overflow: hidden;
         clip: rect(0, 0, 0, 0);
         border: 0;
+    }
+    .searchbar {
+        top: auto;
+        bottom: 100px; 
+        width: 200px; 
     }
     
 }

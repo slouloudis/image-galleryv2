@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     color: white;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(190, 175, 175);
     box-sizing: border-box;
     display: flex;
     flex-direction: column-reverse;

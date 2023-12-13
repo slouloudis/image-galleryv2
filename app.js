@@ -10,7 +10,7 @@ function init() {
 }
 
 async function fetchImages(query = 'japan') {
-    let response = await fetch(`https://api.unsplash.com/search/photos?page=1&query=${query}&client_id=${process.env.CLIENT_ID}`)
+    let response = await fetch(`https://api.unsplash.com/search/photos?page=1&query=${query}&client_id=OmG0FZqCP8A7GhQjYOIs8mqplMHO4OD0xWwoopV1CaA`)
     let data = await response.json();
     images = data.results
     updateDisplayImage(images[currentImageIndex])

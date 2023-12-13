@@ -36,15 +36,14 @@ button#prev{
 }
 
 .thumb-image {
-    width: 70px;
     height: 50px;
     padding: 2px;
     cursor: pointer;
 }
 
 .thumb-container {
-    height: 60px;
-    width: auto;
+    height: 8vh;
+    width: 70vw;
     display: flex;
     position: absolute;
     justify-content: center;
@@ -59,6 +58,7 @@ button#prev{
     backdrop-filter: blur(5px);
     transform: translateX(-50%); /* Shift the element left by 50% of its own width */
     overflow: scroll;
+    color-scheme: dark;
 }
 
 .description-container {
@@ -128,10 +128,11 @@ button#prev{
         top: 3vh;
         bottom: auto;
         overflow: scroll;
+        color-scheme: dark;
     }
 
     .thumb-image {
-        width: 110px;
+        width: auto;
         height: 75px;
         padding: 1px;
         cursor: pointer;

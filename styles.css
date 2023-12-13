@@ -4,6 +4,7 @@ body {
     color: white;
     background-color: black;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 #display img {
@@ -57,7 +58,8 @@ button#prev{
     border-radius: 4px;
     backdrop-filter: blur(5px);
     transform: translateX(-50%); /* Shift the element left by 50% of its own width */
-    overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: hidden;
     color-scheme: dark;
 }
 
@@ -75,7 +77,8 @@ button#prev{
     width: auto;
     padding: 0px 7px 1px 7px;
     height: auto;
-    transition: bottom 0.4s
+    transition: bottom 0.4s;
+    overflow: hidden;
 }
 
 .thumbContainerHideButton-thumbnailsHidden{
@@ -127,7 +130,8 @@ button#prev{
         position: absolute;
         top: 3vh;
         bottom: auto;
-        overflow: scroll;
+        overflow-x: scroll;
+        overflow-y: hidden;
         color-scheme: dark;
     }
 
@@ -149,7 +153,8 @@ button#prev{
         padding: 0px 7px 1px 7px;
         transition: top 0.4s;
         height: auto;
-        content: '↓';
+        overflow: hidden;
+
     }
 
     .thumbContainerHideButton-thumbnailsHidden{

@@ -2,192 +2,45 @@ body {
     margin: 0;
     padding: 0;
     color: white;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
 }
 
 #display img {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    object-fit: cover;
-}
-
-button {
-    border: 1px solid rgba(255, 255, 255, 0.679);
-    border-radius: 100%;
-    background-color: rgba(0, 0, 0, 0.135);
-    color: rgba(255, 255, 255, 0.679);
-    padding: 6px 10px;
-    z-index: 100;
-    cursor: pointer;
-}
-
-button#next {
-    position: absolute;
-    top: 50vh;
-    right: 5vw;
-}
-
-button#prev{
-    position: absolute;
-    top: 50vh;
-    left: 5vw;
-}
-
-.thumb-image {
-    height: 50px;
-    padding: 2px;
-    cursor: pointer;
-}
-
-.thumb-container {
-    height: 8vh;
-    width: 70vw;
-    display: flex;
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    background-color: rgba(0, 0, 0, 0.459);
-    bottom: 3vh;
-    left: 50%; /* Set left to 50% of the parent element */
-    padding-left: 5px;
-    padding-right: 5px;
-    border-radius: 4px;
-    backdrop-filter: blur(5px);
-    transform: translateX(-50%); /* Shift the element left by 50% of its own width */
-    overflow: scroll;
-    color-scheme: dark;
-}
-
-.description-container {
-    position: absolute;
-    height: 50vh;
-    width: 20vw;
-    z-index: 100;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(5px);
-}
-
-.thumbContainerHideButton{
-    bottom: 13vh;
+    height: 400px;
     width: auto;
-    padding: 0px 7px 1px 7px;
-    height: auto;
-    transition: bottom 0.4s
-}
-
-.thumbContainerHideButton-thumbnailsHidden{
-    bottom: 8vh;
-}
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+    object-fit: cover;
+    margin: 20px;
 }
 
 
-.hidden {
-    display: none;
-}
+
+
+
 
 .searchbar {
-    position: absolute;
-    top: 4vh; /* Adjust this value so it sits above the thumbnail container */
-    left: 50%; /* Center align */
-    transform: translateX(-50%); /* Adjust for center alignment */
     z-index: 101; /* Higher than the thumbnail container */
     padding: 8px 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    margin-top: 20px;
     outline: none; /* Removes default focus outline */
 }
 
 /* For desktop */
 @media (width >= 600px) {
-    .description-container {
-        height: 80px;
-        width: 500px;
-        position: absolute;
-    }
-    .thumb-container {
-         /* desperate times, if we flex it to row it flexes off the screen, so the first image is cut off. sorry. */
-        flex-direction: column;
-        flex-wrap: wrap;
-        height: 90px;
-        width: 400px;
-        position: absolute;
-        top: 3vh;
-        bottom: auto;
-        overflow: scroll;
-        color-scheme: dark;
-    }
-
-    .thumb-image {
-        width: auto;
-        height: 75px;
-        padding: 1px;
-        cursor: pointer;
-        flex-shrink: 0;
-    }
+ 
     /* If your browser doesn't have a useragent style for this, you should add it. */
     /* .thumb-image:focus{
        border: 2px solid white
     } */
-    .thumbContainerHideButton {
-        top: 17vh;
-        bottom: auto;
-        width: auto;
-        padding: 0px 7px 1px 7px;
-        transition: top 0.4s;
-        height: auto;
-        content: '↓';
-    }
-
-    .thumbContainerHideButton-thumbnailsHidden{
-        top: 4vh;
-    }
-
-    .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        padding: 0;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-    }
+ 
     .searchbar {
-        top: auto;
-        bottom: 100px; 
         width: 200px; 
     }
     
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateX(-100%);
-    }
-    to {
-        transform: translateX(0);
-    }
-}
-
-@keyframes slideOut {
-    from {
-        transform: translateX(0);
-    }
-    to {
-        transform: translateX(100%);
-    }
 }
